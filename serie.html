@@ -9,7 +9,6 @@
 *{margin:0;padding:0;box-sizing:border-box;}
 html,body{background:#141414;color:#fff;font-family:'Inter',sans-serif;min-height:100vh;}
 
-/* ── NAV ── */
 nav{
   position:fixed;top:0;left:0;right:0;z-index:50;
   display:flex;align-items:center;gap:2rem;
@@ -35,7 +34,6 @@ nav.scrolled{background:rgba(20,20,20,0.97);}
 }
 .btn-gestionar:hover{background:rgba(255,255,255,0.2);}
 
-/* ── HERO ── */
 .hero{
   position:relative;width:100%;height:100vh;min-height:500px;
   overflow:hidden;
@@ -44,7 +42,6 @@ nav.scrolled{background:rgba(20,20,20,0.97);}
   position:absolute;inset:0;
   background:url('Fotos/AshleyFranEspalda.jpeg') center/cover no-repeat;
 }
-/* Gradientes como Netflix */
 .hero-bg::after{
   content:'';position:absolute;inset:0;
   background:
@@ -57,30 +54,15 @@ nav.scrolled{background:rgba(20,20,20,0.97);}
   padding:0 3.5% 8%;
   max-width:580px;
 }
-.hero-badge{
-  display:flex;align-items:center;gap:0.5rem;
-  margin-bottom:0.6rem;
-}
-.hero-badge .n-icon{
-  font-family:'Bebas Neue',sans-serif;font-size:1.1rem;color:#E50914;font-style:normal;
-}
+.hero-badge{display:flex;align-items:center;gap:0.5rem;margin-bottom:0.6rem;}
+.hero-badge .n-icon{font-family:'Bebas Neue',sans-serif;font-size:1.1rem;color:#E50914;font-style:normal;}
 .hero-badge span{font-size:0.75rem;font-weight:600;letter-spacing:0.18em;color:rgba(255,255,255,0.9);}
-.hero-title{
-  font-size:clamp(2.5rem,6vw,4.5rem);font-weight:700;line-height:1;
-  margin-bottom:0.7rem;text-shadow:2px 2px 8px rgba(0,0,0,0.5);
-}
-.hero-meta{
-  font-size:0.78rem;color:rgba(255,255,255,0.7);
-  margin-bottom:0.9rem;display:flex;align-items:center;gap:0.4rem;flex-wrap:wrap;
-}
+.hero-title{font-size:clamp(2.5rem,6vw,4.5rem);font-weight:700;line-height:1;margin-bottom:0.7rem;text-shadow:2px 2px 8px rgba(0,0,0,0.5);}
+.hero-meta{font-size:0.78rem;color:rgba(255,255,255,0.7);margin-bottom:0.9rem;display:flex;align-items:center;gap:0.4rem;flex-wrap:wrap;}
 .hero-meta .match{color:#46d369;font-weight:600;}
 .hero-meta .dot{color:rgba(255,255,255,0.4);}
 .hero-meta .age{border:1px solid rgba(255,255,255,0.4);padding:0 4px;border-radius:2px;font-size:0.7rem;}
-.hero-desc{
-  font-size:0.95rem;line-height:1.65;color:rgba(255,255,255,0.88);
-  margin-bottom:1.4rem;max-width:480px;
-  text-shadow:1px 1px 4px rgba(0,0,0,0.6);
-}
+.hero-desc{font-size:0.95rem;line-height:1.65;color:rgba(255,255,255,0.88);margin-bottom:1.4rem;max-width:480px;text-shadow:1px 1px 4px rgba(0,0,0,0.6);}
 .hero-btns{display:flex;gap:0.8rem;flex-wrap:wrap;}
 .btn-play{
   background:#fff;color:#000;border:none;
@@ -99,47 +81,17 @@ nav.scrolled{background:rgba(20,20,20,0.97);}
 }
 .btn-info:hover{background:rgba(109,109,110,0.5);transform:scale(1.02);}
 
-/* ── EPISODIOS ── */
-.episodes-section{
-  background:#141414;padding:2rem 3.5% 4rem;
-  position:relative;z-index:2;
-}
-.ep-header{
-  display:flex;align-items:center;justify-content:space-between;
-  margin-bottom:1.2rem;flex-wrap:wrap;gap:0.5rem;
-}
+.episodes-section{background:#141414;padding:2rem 3.5% 4rem;position:relative;z-index:2;}
+.ep-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:1.2rem;flex-wrap:wrap;gap:0.5rem;}
 .ep-title{font-size:1.3rem;font-weight:600;}
-.ep-season{
-  background:rgba(255,255,255,0.07);border:none;color:#fff;
-  padding:0.4rem 1rem;border-radius:4px;font-size:0.85rem;
-  cursor:pointer;display:flex;align-items:center;gap:0.4rem;
-}
-
-.ep-card{
-  display:flex;align-items:flex-start;gap:1rem;
-  padding:1rem 0;border-bottom:1px solid rgba(255,255,255,0.07);
-  cursor:pointer;transition:background 0.15s;border-radius:4px;
-  text-decoration:none;color:inherit;
-}
+.ep-season{background:rgba(255,255,255,0.07);border:none;color:#fff;padding:0.4rem 1rem;border-radius:4px;font-size:0.85rem;cursor:pointer;}
+.ep-card{display:flex;align-items:flex-start;gap:1rem;padding:1rem 0;border-bottom:1px solid rgba(255,255,255,0.07);cursor:pointer;transition:background 0.15s;border-radius:4px;text-decoration:none;color:inherit;}
 .ep-card:hover{background:rgba(255,255,255,0.04);padding:1rem 0.5rem;}
-.ep-num{
-  font-size:1.4rem;font-weight:300;color:rgba(255,255,255,0.4);
-  min-width:28px;text-align:center;padding-top:0.6rem;
-}
-.ep-thumb{
-  position:relative;flex-shrink:0;width:130px;height:75px;border-radius:4px;overflow:hidden;background:#222;
-}
+.ep-num{font-size:1.4rem;font-weight:300;color:rgba(255,255,255,0.4);min-width:28px;text-align:center;padding-top:0.6rem;}
+.ep-thumb{position:relative;flex-shrink:0;width:130px;height:75px;border-radius:4px;overflow:hidden;background:#222;}
 .ep-thumb img{width:100%;height:100%;object-fit:cover;}
-.ep-thumb-duration{
-  position:absolute;bottom:4px;right:4px;
-  background:rgba(0,0,0,0.8);color:#fff;
-  font-size:0.65rem;padding:1px 5px;border-radius:2px;
-}
-.ep-play-overlay{
-  position:absolute;inset:0;background:rgba(0,0,0,0);
-  display:flex;align-items:center;justify-content:center;
-  transition:background 0.2s;
-}
+.ep-thumb-duration{position:absolute;bottom:4px;right:4px;background:rgba(0,0,0,0.8);color:#fff;font-size:0.65rem;padding:1px 5px;border-radius:2px;}
+.ep-play-overlay{position:absolute;inset:0;background:rgba(0,0,0,0);display:flex;align-items:center;justify-content:center;transition:background 0.2s;}
 .ep-card:hover .ep-play-overlay{background:rgba(0,0,0,0.4);}
 .ep-play-overlay svg{opacity:0;transition:opacity 0.2s;}
 .ep-card:hover .ep-play-overlay svg{opacity:1;}
@@ -147,7 +99,6 @@ nav.scrolled{background:rgba(20,20,20,0.97);}
 .ep-name{font-size:0.92rem;font-weight:500;margin-bottom:0.4rem;}
 .ep-desc{font-size:0.8rem;color:rgba(255,255,255,0.6);line-height:1.5;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}
 
-/* scroll bar */
 ::-webkit-scrollbar{width:5px;}
 ::-webkit-scrollbar-track{background:#141414;}
 ::-webkit-scrollbar-thumb{background:#333;border-radius:3px;}
@@ -159,16 +110,13 @@ nav.scrolled{background:rgba(20,20,20,0.97);}
   <a href="index.html" class="nf-logo">NETFLIX</a>
   <ul class="nav-links">
     <li><a href="#" class="active">Inicio</a></li>
-    <li><a href="#">Series</a></li>
-    <li><a href="#">Música</a></li>
-    <li><a href="#">Mi lista</a></li>
+    
   </ul>
   <div class="nav-right">
     <button class="btn-gestionar">Gestionar perfiles</button>
   </div>
 </nav>
 
-<!-- HERO -->
 <section class="hero">
   <div class="hero-bg"></div>
   <div class="hero-content">
@@ -189,7 +137,7 @@ nav.scrolled{background:rgba(20,20,20,0.97);}
       <span>Romance • Drama</span>
     </div>
     <p class="hero-desc">
-      Eres el tesoro más valioso que tengo, prometo cuidarte y estar contigo en las buenas y en las malas. El amor es una decisión y yo decido estar contigo el resto de mi vida. Te amo como nunca lo he hecho, mi amor ♥
+Hoy comienzas un nuevo capítulo en tu vida, mi amor. En este primer día de clases quiero recordarte lo valiosa, fuerte y capaz que eres. Cada paso que des será un logro más, y aunque el camino tenga retos, siempre estaré a tu lado apoyándote y creyendo en ti. Me llena de orgullo verte crecer y luchar por tus sueños. Nunca olvides que eres mi mayor inspiración. Te amo hoy y siempre ♥
     </p>
     <div class="hero-btns">
       <button class="btn-play" onclick="window.location.href='episodio.html'">
@@ -204,13 +152,11 @@ nav.scrolled{background:rgba(20,20,20,0.97);}
   </div>
 </section>
 
-<!-- EPISODIOS -->
 <section class="episodes-section">
   <div class="ep-header">
     <h2 class="ep-title">Episodios</h2>
     <button class="ep-season">Temporada 1 ▾</button>
   </div>
-
   <a href="episodio.html" class="ep-card">
     <div class="ep-num">1</div>
     <div class="ep-thumb">
@@ -225,13 +171,47 @@ nav.scrolled{background:rgba(20,20,20,0.97);}
       <div class="ep-desc">El primer capítulo de nuestra historia juntos. Cada momento contigo es único e irrepetible.</div>
     </div>
   </a>
-
 </section>
 
+<!-- ═══ AUDIO PERSISTENTE ═══ -->
+<audio id="bgAudio" loop>
+  <source src="audio/AudioFran.mp3" type="audio/mpeg">
+</audio>
+
 <script>
-window.addEventListener('scroll',()=>{
-  document.getElementById('mainNav').classList.toggle('scrolled',window.scrollY>50);
+// ── Scroll nav ──
+window.addEventListener('scroll', () => {
+  document.getElementById('mainNav').classList.toggle('scrolled', window.scrollY > 50);
+});
+
+// ── Audio persistente ──
+const bgAudio = document.getElementById('bgAudio');
+let audioListo = false;
+
+function intentarReproducir() {
+  if (audioListo) return;
+  if (localStorage.getItem('audioPlaying') === 'true') {
+    const tiempo = parseFloat(localStorage.getItem('audioTime') || 0);
+    if (tiempo > 0) bgAudio.currentTime = tiempo;
+    bgAudio.play().then(() => {
+      audioListo = true;
+    }).catch(() => {});
+  }
+}
+
+// Intenta cuando el audio está listo
+bgAudio.addEventListener('canplay', intentarReproducir);
+
+// Si el navegador bloqueó el autoplay, retoma al primer clic en cualquier parte
+document.addEventListener('click',     intentarReproducir, { once: true });
+document.addEventListener('touchstart', intentarReproducir, { once: true });
+document.addEventListener('keydown',   intentarReproducir, { once: true });
+
+// Guarda la posición continuamente
+bgAudio.addEventListener('timeupdate', () => {
+  if (!bgAudio.paused) localStorage.setItem('audioTime', bgAudio.currentTime);
 });
 </script>
+
 </body>
 </html>
