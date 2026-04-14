@@ -9,7 +9,6 @@
 *{margin:0;padding:0;box-sizing:border-box;}
 html,body{background:#141414;color:#fff;font-family:'Inter',sans-serif;min-height:100vh;}
 
-/* ── NAV ── */
 nav{
   position:fixed;top:0;left:0;right:0;z-index:50;
   display:flex;align-items:center;gap:2rem;
@@ -29,7 +28,6 @@ nav.scrolled{background:rgba(20,20,20,0.97);}
 }
 .nav-back:hover{color:#fff;}
 
-/* ── HERO ── */
 .hero{
   position:relative;width:100%;
   height:60vh;min-height:380px;
@@ -60,43 +58,20 @@ nav.scrolled{background:rgba(20,20,20,0.97);}
 .hero-meta .dot{color:rgba(255,255,255,0.35);}
 .hero-meta .age{border:1px solid rgba(255,255,255,0.35);padding:0 4px;border-radius:2px;font-size:0.7rem;}
 
-/* ── CONTENT BELOW ── */
-.page-content{
-  padding:2rem 3.5% 5rem;
-  max-width:900px;
-}
-.section-label{
-  font-size:0.72rem;font-weight:600;letter-spacing:0.15em;
-  color:rgba(255,255,255,0.4);text-transform:uppercase;
-  margin-bottom:0.6rem;
-}
-.ep-description{
-  font-size:0.95rem;line-height:1.7;color:rgba(255,255,255,0.82);
-  margin-bottom:2.5rem;max-width:620px;
-}
+.page-content{padding:2rem 3.5% 5rem;max-width:900px;}
+.section-label{font-size:0.72rem;font-weight:600;letter-spacing:0.15em;color:rgba(255,255,255,0.4);text-transform:uppercase;margin-bottom:0.6rem;}
+.ep-description{font-size:0.95rem;line-height:1.7;color:rgba(255,255,255,0.82);margin-bottom:2.5rem;max-width:620px;}
 
-/* ── VIDEO THUMBNAIL ── */
 .video-section h2{font-size:1.2rem;font-weight:600;margin-bottom:1.2rem;}
 .video-thumb-wrap{
-  position:relative;
-  width:100%;max-width:640px;
-  aspect-ratio:16/9;
-  border-radius:8px;overflow:hidden;
-  cursor:pointer;
-  background:#000;
+  position:relative;width:100%;max-width:640px;
+  aspect-ratio:16/9;border-radius:8px;overflow:hidden;
+  cursor:pointer;background:#000;
   box-shadow:0 8px 32px rgba(0,0,0,0.6);
 }
-.video-thumb-wrap img{
-  width:100%;height:100%;object-fit:cover;
-  transition:transform 0.4s ease, filter 0.3s ease;
-}
+.video-thumb-wrap img{width:100%;height:100%;object-fit:cover;transition:transform 0.4s ease, filter 0.3s ease;}
 .video-thumb-wrap:hover img{transform:scale(1.03);filter:brightness(0.7);}
-.video-overlay{
-  position:absolute;inset:0;
-  display:flex;align-items:center;justify-content:center;
-  background:rgba(0,0,0,0.2);
-  transition:background 0.3s;
-}
+.video-overlay{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,0.2);transition:background 0.3s;}
 .video-thumb-wrap:hover .video-overlay{background:rgba(0,0,0,0.4);}
 .play-circle{
   width:72px;height:72px;border-radius:50%;
@@ -106,12 +81,8 @@ nav.scrolled{background:rgba(20,20,20,0.97);}
   transition:transform 0.2s,background 0.2s;
 }
 .video-thumb-wrap:hover .play-circle{transform:scale(1.1);background:rgba(229,9,20,0.85);border-color:#E50914;}
-.video-caption{
-  margin-top:0.7rem;font-size:0.82rem;
-  color:rgba(255,255,255,0.45);
-}
+.video-caption{margin-top:0.7rem;font-size:0.82rem;color:rgba(255,255,255,0.45);}
 
-/* ── MODAL VIDEO ── */
 #videoModal{
   position:fixed;inset:0;z-index:999;
   background:rgba(0,0,0,0.95);
@@ -122,23 +93,18 @@ nav.scrolled{background:rgba(20,20,20,0.97);}
 #videoModal.open{opacity:1;pointer-events:all;}
 .modal-inner{
   position:relative;width:90vw;max-width:900px;
-  aspect-ratio:16/9;
-  border-radius:8px;overflow:hidden;background:#000;
+  aspect-ratio:16/9;border-radius:8px;overflow:hidden;background:#000;
 }
-.modal-inner video, .modal-inner iframe{
-  width:100%;height:100%;border:none;display:block;
-}
+.modal-inner video{width:100%;height:100%;border:none;display:block;}
 .modal-close{
   position:absolute;top:-44px;right:0;
   background:none;border:none;color:#fff;
-  font-size:1.8rem;cursor:pointer;
-  display:flex;align-items:center;gap:0.4rem;
+  cursor:pointer;display:flex;align-items:center;gap:0.4rem;
   font-family:'Inter',sans-serif;font-size:0.9rem;
   font-weight:500;transition:color 0.2s;
 }
 .modal-close:hover{color:rgba(255,255,255,0.6);}
 
-/* scroll bar */
 ::-webkit-scrollbar{width:5px;}
 ::-webkit-scrollbar-track{background:#141414;}
 ::-webkit-scrollbar-thumb{background:#333;border-radius:3px;}
@@ -154,7 +120,6 @@ nav.scrolled{background:rgba(20,20,20,0.97);}
   </a>
 </nav>
 
-<!-- HERO CABECERA -->
 <section class="hero">
   <div class="hero-bg"></div>
   <div class="hero-content">
@@ -176,24 +141,16 @@ nav.scrolled{background:rgba(20,20,20,0.97);}
   </div>
 </section>
 
-<!-- CONTENIDO -->
 <div class="page-content">
   <div class="section-label">Nosotros</div>
   <p class="ep-description">
-    Eres el tesoro más valioso que tengo, prometo cuidarte y estar contigo en las buenas y en las malas. El amor es una decisión y yo decido estar contigo el resto de mi vida. Te amo como nunca lo he hecho, mi amor ♥
+    El primer día de clases siempre está lleno de emociones: nervios, ilusión y nuevos comienzos. Es el inicio de experiencias que marcarán tu vida, de amistades, aprendizajes y momentos inolvidables. Por eso, hoy queremos guardar este instante tan especial… y qué mejor manera de hacerlo que con un pequeño video que capture la esencia de este nuevo comienzo. Dale play y revive la magia de este primer día ♥
   </p>
 
   <div class="video-section">
     <h2>Ver episodio</h2>
-
-    <!-- LA IMAGEN QUE AL PRESIONAR ABRE EL VIDEO -->
     <div class="video-thumb-wrap" onclick="abrirVideo()">
-      <!-- Cambia esta imagen por la tuya: src="tu-imagen.jpg" -->
-      <img
-        src="Fotos/Fran/PortadaVideo.jpeg"
-        alt="Ver episodio"
-        onerror="this.src=''; this.parentElement.style.background='#1a1a1a';"
-      >
+      <img src="Fotos/Fran/PortadaVideo.jpeg" alt="Ver episodio" onerror="this.src='';this.parentElement.style.background='#1a1a1a';">
       <div class="video-overlay">
         <div class="play-circle">
           <svg width="28" height="28" viewBox="0 0 24 24" fill="white" style="margin-left:4px">
@@ -213,48 +170,72 @@ nav.scrolled{background:rgba(20,20,20,0.97);}
       <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
       Cerrar
     </button>
-    <!-- Aquí va tu video. Opciones: -->
-
-    <!-- OPCIÓN A: Video local (archivo .mp4 en la misma carpeta) -->
-    <video id="miVideo" controls autoplay>
+    <video id="miVideo" controls>
       <source src="Fotos/Fran/VideoFran.mp4" type="video/mp4">
-      <!-- Si no hay video, muestra un mensaje -->
-      <div style="display:flex;align-items:center;justify-content:center;height:100%;color:rgba(255,255,255,0.5);font-size:1rem;">
-        Agrega tu video.mp4 en la misma carpeta
-      </div>
     </video>
-
-    <!-- OPCIÓN B: Video de YouTube (descomenta y pon tu ID) -->
-    <!-- <iframe id="ytFrame" src="" allowfullscreen allow="autoplay"></iframe> -->
   </div>
 </div>
 
+<!-- ═══ AUDIO PERSISTENTE ═══ -->
+<audio id="bgAudio" loop>
+  <source src="audio/AudioFran.mp3" type="audio/mpeg">
+</audio>
+
 <script>
-window.addEventListener('scroll',()=>{
-  document.getElementById('mainNav').classList.toggle('scrolled',window.scrollY>50);
+// ── Scroll nav ──
+window.addEventListener('scroll', () => {
+  document.getElementById('mainNav').classList.toggle('scrolled', window.scrollY > 50);
 });
 
-function abrirVideo(){
+// ── Video modal ──
+function abrirVideo() {
+  // Pausa el audio de fondo mientras suena el video
+  bgAudio.pause();
   document.getElementById('videoModal').classList.add('open');
-  document.body.style.overflow='hidden';
-  // Si usas YouTube, descomenta:
-  // document.getElementById('ytFrame').src='https://www.youtube.com/embed/TU_ID_AQUI?autoplay=1';
+  document.body.style.overflow = 'hidden';
+  document.getElementById('miVideo').play().catch(()=>{});
 }
 
-function cerrarVideo(){
+function cerrarVideo() {
   document.getElementById('videoModal').classList.remove('open');
-  document.body.style.overflow='';
-  const v=document.getElementById('miVideo');
-  if(v)v.pause();
-  // Si usas YouTube:
-  // document.getElementById('ytFrame').src='';
+  document.body.style.overflow = '';
+  const v = document.getElementById('miVideo');
+  if(v) v.pause();
+  // Retoma el audio de fondo al cerrar el video
+  if(localStorage.getItem('audioPlaying') === 'true') {
+    bgAudio.play().catch(()=>{});
+  }
 }
 
-function cerrarSiAfuera(e){
-  if(e.target===document.getElementById('videoModal')) cerrarVideo();
+function cerrarSiAfuera(e) {
+  if(e.target === document.getElementById('videoModal')) cerrarVideo();
 }
 
-document.addEventListener('keydown', e=>{if(e.key==='Escape')cerrarVideo();});
+document.addEventListener('keydown', e => { if(e.key === 'Escape') cerrarVideo(); });
+
+// ── Audio persistente ──
+const bgAudio = document.getElementById('bgAudio');
+let audioListo = false;
+
+function intentarReproducir() {
+  if(audioListo) return;
+  if(localStorage.getItem('audioPlaying') === 'true') {
+    const tiempo = parseFloat(localStorage.getItem('audioTime') || 0);
+    if(tiempo > 0) bgAudio.currentTime = tiempo;
+    bgAudio.play().then(() => {
+      audioListo = true;
+    }).catch(() => {});
+  }
+}
+
+bgAudio.addEventListener('canplay', intentarReproducir);
+document.addEventListener('click',      intentarReproducir, { once: true });
+document.addEventListener('touchstart', intentarReproducir, { once: true });
+
+bgAudio.addEventListener('timeupdate', () => {
+  if(!bgAudio.paused) localStorage.setItem('audioTime', bgAudio.currentTime);
+});
 </script>
+
 </body>
 </html>
