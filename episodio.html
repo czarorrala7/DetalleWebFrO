@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Episodio - Netflix</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&display=swap');
+*{margin:0;padding:0;box-sizing:border-box;}
+html,body{background:#141414;color:#fff;font-family:'Inter',sans-serif;min-height:100vh;}
+
+/* ── NAV ── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:50;
+  display:flex;align-items:center;gap:2rem;
+  padding:0.9rem 3.5%;
+  background:linear-gradient(to bottom,rgba(0,0,0,0.85) 0%,transparent 100%);
+  transition:background 0.3s;
+}
+nav.scrolled{background:rgba(20,20,20,0.97);}
+.nf-logo{
+  font-family:'Bebas Neue',sans-serif;font-size:1.9rem;
+  color:#E50914;letter-spacing:1px;text-decoration:none;
+}
+.nav-back{
+  margin-left:0.5rem;display:flex;align-items:center;gap:0.4rem;
+  color:rgba(255,255,255,0.7);font-size:0.85rem;
+  text-decoration:none;cursor:pointer;transition:color 0.2s;
+}
+.nav-back:hover{color:#fff;}
+
+/* ── HERO ── */
+.hero{
+  position:relative;width:100%;
+  height:60vh;min-height:380px;
+  overflow:hidden;
+}
+.hero-bg{
+  position:absolute;inset:0;
+  background:url('Fotos/Fran/PortadaFranV.jpeg') center/cover no-repeat;
+}
+.hero-bg::after{
+  content:'';position:absolute;inset:0;
+  background:
+    linear-gradient(to right,rgba(0,0,0,0.7) 0%,rgba(0,0,0,0.2) 70%,transparent 100%),
+    linear-gradient(to top,#141414 0%,transparent 50%);
+}
+.hero-content{
+  position:relative;z-index:2;
+  height:100%;display:flex;flex-direction:column;justify-content:flex-end;
+  padding:0 3.5% 4rem;
+}
+.hero-badge{display:flex;align-items:center;gap:0.5rem;margin-bottom:0.5rem;}
+.hero-badge .n-icon{font-family:'Bebas Neue',sans-serif;font-size:1.1rem;color:#E50914;font-style:normal;}
+.hero-badge span{font-size:0.72rem;font-weight:600;letter-spacing:0.18em;color:rgba(255,255,255,0.9);}
+.hero-ep-title{font-size:clamp(0.8rem,2vw,1rem);color:rgba(255,255,255,0.6);margin-bottom:0.4rem;font-weight:400;}
+.hero-title{font-size:clamp(2rem,5vw,3.8rem);font-weight:700;line-height:1;margin-bottom:0.8rem;text-shadow:2px 2px 8px rgba(0,0,0,0.5);}
+.hero-meta{font-size:0.78rem;color:rgba(255,255,255,0.65);display:flex;align-items:center;gap:0.4rem;flex-wrap:wrap;}
+.hero-meta .match{color:#46d369;font-weight:600;}
+.hero-meta .dot{color:rgba(255,255,255,0.35);}
+.hero-meta .age{border:1px solid rgba(255,255,255,0.35);padding:0 4px;border-radius:2px;font-size:0.7rem;}
+
+/* ── CONTENT BELOW ── */
+.page-content{
+  padding:2rem 3.5% 5rem;
+  max-width:900px;
+}
+.section-label{
+  font-size:0.72rem;font-weight:600;letter-spacing:0.15em;
+  color:rgba(255,255,255,0.4);text-transform:uppercase;
+  margin-bottom:0.6rem;
+}
+.ep-description{
+  font-size:0.95rem;line-height:1.7;color:rgba(255,255,255,0.82);
+  margin-bottom:2.5rem;max-width:620px;
+}
+
+/* ── VIDEO THUMBNAIL ── */
+.video-section h2{font-size:1.2rem;font-weight:600;margin-bottom:1.2rem;}
+.video-thumb-wrap{
+  position:relative;
+  width:100%;max-width:640px;
+  aspect-ratio:16/9;
+  border-radius:8px;overflow:hidden;
+  cursor:pointer;
+  background:#000;
+  box-shadow:0 8px 32px rgba(0,0,0,0.6);
+}
+.video-thumb-wrap img{
+  width:100%;height:100%;object-fit:cover;
+  transition:transform 0.4s ease, filter 0.3s ease;
+}
+.video-thumb-wrap:hover img{transform:scale(1.03);filter:brightness(0.7);}
+.video-overlay{
+  position:absolute;inset:0;
+  display:flex;align-items:center;justify-content:center;
+  background:rgba(0,0,0,0.2);
+  transition:background 0.3s;
+}
+.video-thumb-wrap:hover .video-overlay{background:rgba(0,0,0,0.4);}
+.play-circle{
+  width:72px;height:72px;border-radius:50%;
+  background:rgba(0,0,0,0.65);
+  border:3px solid rgba(255,255,255,0.9);
+  display:flex;align-items:center;justify-content:center;
+  transition:transform 0.2s,background 0.2s;
+}
+.video-thumb-wrap:hover .play-circle{transform:scale(1.1);background:rgba(229,9,20,0.85);border-color:#E50914;}
+.video-caption{
+  margin-top:0.7rem;font-size:0.82rem;
+  color:rgba(255,255,255,0.45);
+}
+
+/* ── MODAL VIDEO ── */
+#videoModal{
+  position:fixed;inset:0;z-index:999;
+  background:rgba(0,0,0,0.95);
+  display:flex;align-items:center;justify-content:center;
+  opacity:0;pointer-events:none;
+  transition:opacity 0.3s ease;
+}
+#videoModal.open{opacity:1;pointer-events:all;}
+.modal-inner{
+  position:relative;width:90vw;max-width:900px;
+  aspect-ratio:16/9;
+  border-radius:8px;overflow:hidden;background:#000;
+}
+.modal-inner video, .modal-inner iframe{
+  width:100%;height:100%;border:none;display:block;
+}
+.modal-close{
+  position:absolute;top:-44px;right:0;
+  background:none;border:none;color:#fff;
+  font-size:1.8rem;cursor:pointer;
+  display:flex;align-items:center;gap:0.4rem;
+  font-family:'Inter',sans-serif;font-size:0.9rem;
+  font-weight:500;transition:color 0.2s;
+}
+.modal-close:hover{color:rgba(255,255,255,0.6);}
+
+/* scroll bar */
+::-webkit-scrollbar{width:5px;}
+::-webkit-scrollbar-track{background:#141414;}
+::-webkit-scrollbar-thumb{background:#333;border-radius:3px;}
+</style>
+</head>
+<body>
+
+<nav id="mainNav">
+  <a href="index.html" class="nf-logo">NETFLIX</a>
+  <a href="serie.html" class="nav-back">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg>
+    Volver
+  </a>
+</nav>
+
+<!-- HERO CABECERA -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <div class="hero-badge">
+      <i class="n-icon">N</i>
+      <span>SERIE</span>
+    </div>
+    <div class="hero-ep-title">Temporada 1 · Episodio 1</div>
+    <h1 class="hero-title">Un poquito de nosotros</h1>
+    <div class="hero-meta">
+      <span class="match">97% para ti</span>
+      <span class="dot">•</span>
+      <span>2024</span>
+      <span class="dot">•</span>
+      <span class="age">13+</span>
+      <span class="dot">•</span>
+      <span>25 seg</span>
+    </div>
+  </div>
+</section>
+
+<!-- CONTENIDO -->
+<div class="page-content">
+  <div class="section-label">Nosotros</div>
+  <p class="ep-description">
+    Eres el tesoro más valioso que tengo, prometo cuidarte y estar contigo en las buenas y en las malas. El amor es una decisión y yo decido estar contigo el resto de mi vida. Te amo como nunca lo he hecho, mi amor ♥
+  </p>
+
+  <div class="video-section">
+    <h2>Ver episodio</h2>
+
+    <!-- LA IMAGEN QUE AL PRESIONAR ABRE EL VIDEO -->
+    <div class="video-thumb-wrap" onclick="abrirVideo()">
+      <!-- Cambia esta imagen por la tuya: src="tu-imagen.jpg" -->
+      <img
+        src="Fotos/Fran/PortadaVideo.jpeg"
+        alt="Ver episodio"
+        onerror="this.src=''; this.parentElement.style.background='#1a1a1a';"
+      >
+      <div class="video-overlay">
+        <div class="play-circle">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="white" style="margin-left:4px">
+            <path d="M8 5v14l11-7z"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+    <div class="video-caption">Presiona para reproducir el video</div>
+  </div>
+</div>
+
+<!-- MODAL VIDEO -->
+<div id="videoModal" onclick="cerrarSiAfuera(event)">
+  <div class="modal-inner" id="modalInner">
+    <button class="modal-close" onclick="cerrarVideo()">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+      Cerrar
+    </button>
+    <!-- Aquí va tu video. Opciones: -->
+
+    <!-- OPCIÓN A: Video local (archivo .mp4 en la misma carpeta) -->
+    <video id="miVideo" controls autoplay>
+      <source src="Fotos/Fran/VideoFran.mp4" type="video/mp4">
+      <!-- Si no hay video, muestra un mensaje -->
+      <div style="display:flex;align-items:center;justify-content:center;height:100%;color:rgba(255,255,255,0.5);font-size:1rem;">
+        Agrega tu video.mp4 en la misma carpeta
+      </div>
+    </video>
+
+    <!-- OPCIÓN B: Video de YouTube (descomenta y pon tu ID) -->
+    <!-- <iframe id="ytFrame" src="" allowfullscreen allow="autoplay"></iframe> -->
+  </div>
+</div>
+
+<script>
+window.addEventListener('scroll',()=>{
+  document.getElementById('mainNav').classList.toggle('scrolled',window.scrollY>50);
+});
+
+function abrirVideo(){
+  document.getElementById('videoModal').classList.add('open');
+  document.body.style.overflow='hidden';
+  // Si usas YouTube, descomenta:
+  // document.getElementById('ytFrame').src='https://www.youtube.com/embed/TU_ID_AQUI?autoplay=1';
+}
+
+function cerrarVideo(){
+  document.getElementById('videoModal').classList.remove('open');
+  document.body.style.overflow='';
+  const v=document.getElementById('miVideo');
+  if(v)v.pause();
+  // Si usas YouTube:
+  // document.getElementById('ytFrame').src='';
+}
+
+function cerrarSiAfuera(e){
+  if(e.target===document.getElementById('videoModal')) cerrarVideo();
+}
+
+document.addEventListener('keydown', e=>{if(e.key==='Escape')cerrarVideo();});
+</script>
+</body>
+</html>
